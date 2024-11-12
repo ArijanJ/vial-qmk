@@ -32,6 +32,8 @@
 // Vial Support
 #define VIAL_KEYBOARD_UID {0xA7, 0xA7, 0x9C, 0x4C, 0xE0, 0xB8, 0x00, 0x8D}
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 8
+
 // The four corners
 #define VIAL_UNLOCK_COMBO_ROWS { 0, 5, 3, 8 }
 #define VIAL_UNLOCK_COMBO_COLS { 0, 0, 0, 0 }
@@ -44,3 +46,36 @@
 #define RGB_MATRIX_KEYPRESSES
 
 #define BACKLIGHT_BREATHING
+
+#define MK_3_SPEED	//Not defined //Enable constant cursor speeds
+#define MK_MOMENTARY_ACCEL	//Not defined	// Enable momentary speed selection
+//
+#define MK_C_OFFSET_UNMOD 2 // Cursor offset per movement (unmodified)
+#define MK_C_INTERVAL_UNMOD 4 // Time between cursor movements (unmodified)
+//
+// Slow:
+#define MK_C_OFFSET_0 1 // Cursor offset per movement (MS_ACL0)
+#define MK_C_INTERVAL_0 6 // Time between cursor movements (MS_ACL0)
+//
+// Fast:
+#define MK_C_OFFSET_2 10 // Cursor offset per movement (MS_ACL2)
+#define MK_C_INTERVAL_2 4 // Time between cursor movements (MS_ACL2)
+// Scrolling:
+#define MK_W_OFFSET_UNMOD 1 // Scroll steps per scroll action (unmodified)
+#define MK_W_INTERVAL_UNMOD 40 // Time between scroll steps (unmodified)
+#define MK_W_OFFSET_0 1 // Scroll steps per scroll action (MS_ACL0)
+#define MK_W_INTERVAL_0 360 // Time between scroll steps (MS_ACL0)
+#define MK_W_OFFSET_1 1 // Scroll steps per scroll action (MS_ACL1)
+#define MK_W_INTERVAL_1 120 // Time between scroll steps (MS_ACL1)
+#define MK_W_OFFSET_2 1 // Scroll steps per scroll action (MS_ACL2)
+#define MK_W_INTERVAL_2 20 // Time between scroll steps (MS_ACL2)
+
+
+
+#define TAPPING_TERM 150
+//#define TAPPING_TERM_PER_KEY
+
+#define HOLD_ON_OTHER_KEY_PRESS
+//#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+
+#define RETRO_TAPPING
