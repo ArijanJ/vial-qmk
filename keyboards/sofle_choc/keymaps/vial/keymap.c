@@ -46,3 +46,23 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MPRV, KC_MNXT) },
 };
 #endif
+
+//uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+//    switch (keycode) {
+//        //case LT(7, KC_TAB) // symbol layer
+//        //    return 200;
+//        default:
+//            return 200;
+//    }
+//}
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(7, KC_TAB): //if entering symbol layer
+            // Immediately select the hold action when another key is pressed.
+            return true;
+        default:
+            // Do not select the hold action when another key is pressed.
+            return false;
+    }
+}

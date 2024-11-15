@@ -70,12 +70,13 @@
 #define MK_W_OFFSET_2 1 // Scroll steps per scroll action (MS_ACL2)
 #define MK_W_INTERVAL_2 20 // Time between scroll steps (MS_ACL2)
 
-
-
-#define TAPPING_TERM 150
+//#define TAPPING_TERM 150
 //#define TAPPING_TERM_PER_KEY
+//tapping term is defined in the c code as default case, whatever
 
-#define HOLD_ON_OTHER_KEY_PRESS
-//#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+//#define HOLD_ON_OTHER_KEY_PRESS
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
-#define RETRO_TAPPING
+//#define RETRO_TAPPING
+
+//#define LEGACY_MAGIC_HANDLING
