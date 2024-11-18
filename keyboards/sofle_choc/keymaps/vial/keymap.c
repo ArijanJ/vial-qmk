@@ -61,8 +61,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case LT(7, KC_TAB): //if entering symbol layer
             // Immediately select the hold action when another key is pressed.
             return true;
-        case MT(MOD_LCTL, KC_ESC)
-            reture true;
+        case MT(MOD_LCTL, KC_ESC):
+            return true;
         default:
             // Do not select the hold action when another key is pressed.
             return false;
