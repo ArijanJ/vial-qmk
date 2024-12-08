@@ -63,8 +63,29 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return true;
         case MT(MOD_LCTL, KC_ESC):
             return true;
+        case LT(5, KC_R):
+            return false;
         default:
             // Do not select the hold action when another key is pressed.
+            return true;
             return false;
     }
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(1, KC_BSPC):
+            if (record->tap.count && record->event.pressed) { // tap
+                tap_code16(KC_BSPC);
+            } else if (record->event.pressed) { // hold
+                layer_on(1);
+                register_mods(MOD_BIT(KC_LCTL));
+            }
+            else { // release
+                layer_off(1);
+                unregister_mods(MOD_BIT(KC_LCTL));
+            }
+            return false;
+    }
+    return true;
 }
