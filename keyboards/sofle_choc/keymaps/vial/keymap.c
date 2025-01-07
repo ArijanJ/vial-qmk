@@ -56,6 +56,15 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 //    }
 //}
 
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(5, KC_R):
+            return 0;
+        default:
+            return QUICK_TAP_TERM;
+    }
+}
+
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(7, KC_TAB): //if entering symbol layer
@@ -74,9 +83,9 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(1, KC_BSPC):
+        case LT(1, KC_ESC):
             if (record->tap.count && record->event.pressed) { // tap
-                tap_code16(KC_BSPC);
+                tap_code16(KC_ESC);
             } else if (record->event.pressed) { // hold
                 layer_on(1);
                 register_mods(MOD_BIT(KC_LCTL));
