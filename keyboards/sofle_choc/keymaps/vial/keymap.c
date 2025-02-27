@@ -85,7 +85,16 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+
+// -------------------
+bool process_fightstick_keycode(uint16_t keycode, keyrecord_t *record);
+// -------------------
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (keycode >= QK_KB_0)
+        if (!process_fightstick_keycode(keycode, record))
+            return false;
+
     switch (keycode) {
         case LT(1, KC_ESC):
             if (record->tap.count && record->event.pressed) { // tap
