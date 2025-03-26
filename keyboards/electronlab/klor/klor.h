@@ -30,4 +30,4 @@
 // readability
 #define ___ KC_NO
 
-#define LAYOUT LAYOUT_polydactyl
+#define LAYOUT LAYOUT_konrad

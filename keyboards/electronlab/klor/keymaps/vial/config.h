@@ -20,7 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ___ KC_NO
 
-#define LAYOUT LAYOUT_polydactyl
+#define LAYOUT LAYOUT_konrad
+#define DYNAMIC_KEYMAP_LAYER_COUNT 12
 
 /* The way how "handedness" is decided (which half is which),
 see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
@@ -31,11 +32,13 @@ for more options.
 #define MASTER_LEFT
 // #define MASTER_RIGHT
 
-//#define TAPPING_TERM 170
-#define TAPPING_TERM 300
+#define TAPPING_TERM 170
+//#define TAPPING_TERM 300
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
+
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
@@ -50,65 +53,39 @@ for more options.
 
 //#define COMBO_COUNT 3
 #define VIAL_COMBO_ENTRIES 25
-// RGB matrix support
-#ifdef RGB_MATRIX_ENABLE
-// RGB Matrix Animation modes. Explicitly enabled
-// For full list of effects, see:
-// https://docs.qmk.fm/#/feature_rgb_matrix?id=rgb-matrix-effect
 
-#    define ENABLE_RGB_MATRIX_ALPHAS_MODS
-#    define ENABLE_RGB_MATRIX_SOLID_COLOR
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
-#    define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
-#    define ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
-#    define ENABLE_RGB_MATRIX_BREATHING
-#    define ENABLE_RGB_MATRIX_BAND_SAT
-#    define ENABLE_RGB_MATRIX_BAND_VAL
-#    define ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT
-#    define ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL
-#    define ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
-#    define ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
-#    define ENABLE_RGB_MATRIX_CYCLE_ALL
-#    define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
-#    define ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
-#    define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
-#    define ENABLE_RGB_MATRIX_CYCLE_OUT_IN
-#    define ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL
-#    define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
-#    define ENABLE_RGB_MATRIX_CYCLE_SPIRAL
-#    define ENABLE_RGB_MATRIX_DUAL_BEACON
-#    define ENABLE_RGB_MATRIX_RAINBOW_BEACON
-#    define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-#    define ENABLE_RGB_MATRIX_RAINDROPS
-#    define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-#    define ENABLE_RGB_MATRIX_HUE_BREATHING
-#    define ENABLE_RGB_MATRIX_HUE_PENDULUM
-#    define ENABLE_RGB_MATRIX_HUE_WAVE
-#    define ENABLE_RGB_MATRIX_PIXEL_RAIN
-#    define ENABLE_RGB_MATRIX_PIXEL_FLOW
-#    define ENABLE_RGB_MATRIX_PIXEL_FRACTAL
-// enabled only if RGB_MATRIX_FRAMEBUFFER_EFFECTS is defined ├─────────────────────────────┐
-#    define ENABLE_RGB_MATRIX_TYPING_HEATMAP
-#    define ENABLE_RGB_MATRIX_DIGITAL_RAIN
-// enabled only of RGB_MATRIX_KEYPRESSES or RGB_MATRIX_KEYRELEASES is defined ├────────────┐
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
-#    define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
-#    define ENABLE_RGB_MATRIX_SPLASH
-#    define ENABLE_RGB_MATRIX_MULTISPLASH
-#    define ENABLE_RGB_MATRIX_SOLID_SPLASH
-#    define ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
-#endif
+#define COMBO_TERM 20
+
+#define MK_3_SPEED	//Not defined //Enable constant cursor speeds
+#define MK_MOMENTARY_ACCEL	//Not defined	// Enable momentary speed selection
+//
+#define MK_C_OFFSET_UNMOD 2 // Cursor offset per movement (unmodified)
+#define MK_C_INTERVAL_UNMOD 4 // Time between cursor movements (unmodified)
+//
+// Slow:
+#define MK_C_OFFSET_0 1 // Cursor offset per movement (MS_ACL0)
+#define MK_C_INTERVAL_0 6 // Time between cursor movements (MS_ACL0)
+//
+// Fast:
+#define MK_C_OFFSET_2 8 // Cursor offset per movement (MS_ACL2)
+#define MK_C_INTERVAL_2 4 // Time between cursor movements (MS_ACL2)
+// Scrolling:
+#define MK_W_OFFSET_UNMOD 1 // Scroll steps per scroll action (unmodified)
+#define MK_W_INTERVAL_UNMOD 40 // Time between scroll steps (unmodified)
+#define MK_W_OFFSET_0 1 // Scroll steps per scroll action (MS_ACL0)
+#define MK_W_INTERVAL_0 360 // Time between scroll steps (MS_ACL0)
+#define MK_W_OFFSET_1 1 // Scroll steps per scroll action (MS_ACL1)
+#define MK_W_INTERVAL_1 120 // Time between scroll steps (MS_ACL1)
+#define MK_W_OFFSET_2 1 // Scroll steps per scroll action (MS_ACL2)
+#define MK_W_INTERVAL_2 20 // Time between scroll steps (MS_ACL2)
 
 // Bootmagic support
 #   define BOOTMAGIC_ROW 0
 #   define BOOTMAGIC_COLUMN 1
 #   define BOOTMAGIC_ROW_RIGHT 4
 #   define BOOTMAGIC_COLUMN_RIGHT 1
+
+#define FORCE_NKRO
 
 // Haptic support
 #ifdef HAPTIC_ENABLE

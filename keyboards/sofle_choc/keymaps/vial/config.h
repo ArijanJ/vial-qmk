@@ -61,6 +61,8 @@
 // Joystick Axes Resolution
 #define JOYSTICK_AXIS_RESOLUTION 8
 
+#define COMBO_TERM 20
+
 // constant
 // // // #define MOUSEKEY_DELAY 500 // doesn't do anything in this mode
   #define MK_3_SPEED	//Not defined //Enable constant cursor speeds

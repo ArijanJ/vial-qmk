@@ -2,8 +2,14 @@
 	"name": "ElectronLab KLOR",
 	"vendorId": "0x3A3C",
 	"productId": "0x0001",
-	"lighting": "vialrgb",
 	"matrix": {"rows": 8, "cols": 6},
+    "customKeycodes": [
+        {
+            "name": "QW_CTRL",
+            "title": "Use QWERTY while also holding the left control key",
+            "shortName": "QW_CTRL"
+        }
+    ],
 	"layouts": {
 		"labels": [
 			[
