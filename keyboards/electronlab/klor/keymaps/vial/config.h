@@ -32,13 +32,14 @@ for more options.
 #define MASTER_LEFT
 // #define MASTER_RIGHT
 
-#define TAPPING_TERM 170
+#define TAPPING_TERM 150
 //#define TAPPING_TERM 300
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define TAPPING_FORCE_HOLD
 
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define QUICK_TAP_TERM 0
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
@@ -55,6 +56,11 @@ for more options.
 #define VIAL_COMBO_ENTRIES 25
 
 #define COMBO_TERM 20
+
+#define JOYSTICK_BUTTON_COUNT 17
+#define JOYSTICK_AXIS_COUNT 6
+#define JOYSTICK_AXIS_RESOLUTION 8
+#define JOYSTICK_HAS_HAT
 
 #define MK_3_SPEED	//Not defined //Enable constant cursor speeds
 #define MK_MOMENTARY_ACCEL	//Not defined	// Enable momentary speed selection

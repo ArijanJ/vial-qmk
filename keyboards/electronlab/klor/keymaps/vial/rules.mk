@@ -1,3 +1,5 @@
+SRC += fightstick.c
+
 OLED_ENABLE = no
 OLED_DRIVER = ssd1306
 ENCODER_ENABLE = yes
@@ -27,3 +29,7 @@ VIALRGB_ENABLE = no
 VIAL_INSECURE = yes
 
 NKRO_ENABLE = yes
+
+JOYSTICK_ENABLE = yes
+JOYSTICK_DRIVER = digital
+

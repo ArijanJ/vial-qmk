@@ -43,9 +43,10 @@ enum klor_layers {
 // │ d e f i n e   k e y c o d e s                             │
 // └───────────────────────────────────────────────────────────┘
 
-enum custom_keycodes {
-    QW_CTRL = QK_KB_0,
-};
+//(now done in fightstick.c)
+//enum custom_keycodes {
+//    QW_CTRL = QK_KB_0,
+//};
 
 // ┌───────────────────────────────────────────────────────────┐
 // │ d e f i n e   m a c r o n a m e s                         │
@@ -216,6 +217,8 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return true; // Immediately select the hold action when another key is pressed.
         case LT(5, KC_SPACE):
             return false;
+        case LT(6, KC_SPACE):
+            return false;
         case LT(2, KC_SPACE):
             return false;
         default:
@@ -223,7 +226,15 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+// ==================================================================== //
+bool process_fightstick_keycode(uint16_t keycode, keyrecord_t *record);
+// ==================================================================== //
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (keycode >= QK_KB_0)
+        if (!process_fightstick_keycode(keycode, record))
+            return false;
+
     switch (keycode) {
         case LT(1, KC_TAB):
             if (record->tap.count && record->event.pressed) { // tap
