@@ -132,14 +132,15 @@
 // #define MOUSEKEY_WHEEL_MAX_SPEED 8
 // #define MOUSEKEY_WHEEL_TIME_TO_MAX 0
 
-#define TAPPING_TERM 170
+#define TAPPING_TERM 150
 //#define TAPPING_TERM_PER_KEY
 //tapping term is defined in the c code as default case, whatever
 
 //#define HOLD_ON_OTHER_KEY_PRESS
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
-#define QUICK_TAP_TERM_PER_KEY
+//#define QUICK_TAP_TERM_PER_KEY
+#define QUICK_TAP_TERM 0
 
 //#define RETRO_TAPPING
 

@@ -62,6 +62,8 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
             return 0;
         case LT(5, KC_SPACE):
             return 0;
+        case LT(2, KC_SPACE):
+            return 0;
         default:
             return QUICK_TAP_TERM;
     }
@@ -72,19 +74,20 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         case LT(7, KC_TAB): //if entering symbol layer
             // Immediately select the hold action when another key is pressed.
             return true;
+        case MT(MOD_LCTL, KC_TAB):
+            return true; // Immediately select the hold action when another key is pressed.
         case MT(MOD_LCTL, KC_ESC):
             return true;
         case LT(5, KC_R):
             return false;
-        case LT(5, KC_SPACE):
+        case LT(5, KC_SPACE): // nav {left space}
+            return false;
+        case LT(8, KC_SPACE): // num {right space}
             return false;
         default:
-            // Do not select the hold action when another key is pressed.
             return true;
-            return false;
     }
 }
-
 
 // -------------------
 bool process_fightstick_keycode(uint16_t keycode, keyrecord_t *record);
@@ -99,6 +102,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case LT(1, KC_ESC):
             if (record->tap.count && record->event.pressed) { // tap
                 tap_code16(KC_ESC);
+            } else if (record->event.pressed) { // hold
+                layer_on(1);
+                register_mods(MOD_BIT(KC_LCTL));
+            }
+            else { // release
+                layer_off(1);
+                unregister_mods(MOD_BIT(KC_LCTL));
+            }
+            return false;
+            break;
+        case LT(1, KC_TAB):
+            if (record->tap.count && record->event.pressed) { // tap
+                tap_code16(KC_TAB);
             } else if (record->event.pressed) { // hold
                 layer_on(1);
                 register_mods(MOD_BIT(KC_LCTL));
