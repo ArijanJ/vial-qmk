@@ -221,10 +221,36 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
             return false;
         case LT(2, KC_SPACE):
             return false;
+        case MT(MOD_LSFT, KC_T):
+            return false;
+        case MT(MOD_RSFT, KC_N):
+            return false;
+
         default:
             return true;
     }
 }
+
+// ==================================================================== //
+
+// void dance_flsh_each(tap_dance_state_t *state, void *user_data) {
+//     return;
+// }
+
+// // On the fourth tap, set the keyboard on flash state
+// void dance_flsh_finished(tap_dance_state_t *state, void *user_data) {
+//     return;
+// }
+
+// // If the flash state didn't happen, then turn off LEDs, left to right
+// void dance_flsh_reset(tap_dance_state_t *state, void *user_data) {
+//     return;
+//     //wait_ms(50);
+// }
+
+// tap_dance_action_t tap_dance_actions[] = {
+//     [0] = ACTION_TAP_DANCE_FN_ADVANCED(dance_flsh_each, dance_flsh_finished, dance_flsh_reset)
+// };
 
 // ==================================================================== //
 bool process_fightstick_keycode(uint16_t keycode, keyrecord_t *record);
